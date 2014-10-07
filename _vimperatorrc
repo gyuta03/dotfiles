@@ -1,0 +1,21 @@
+"3.7 (created: 2013/04/03 18:20:07)
+
+source! "C:\\Users\\hiraki\\_vimperatorrc.local"
+
+" vim: set ft=vimperator:
+
+
+"+---------------------------------------
+"others
+"+---------------------------------------
+"ｺﾏﾝﾄﾞﾗｲﾝﾓｰﾄﾞ時に自動でimeをOFFにする
+"コピペ元ページ　 http://vimperator.g.hatena.ne.jp/teramako/20090311/1236776437
+style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
+
+" migemo_hint.js
+set hintmatching=custom
+
+"j/kの移動量を5倍に
+nnoremap j 5j
+nnoremap k 5k
