@@ -127,8 +127,6 @@ scriptencoding cp932
 
 if has('win32')
 
-
-
   filetype off
 
   if has('vim_starting')
@@ -169,6 +167,17 @@ endif
 
 
 " 環境依存や非公開設定ファイルの読み込み
-if filereadable(expand('~/.vimrc.local'))
-source ~/.vimrc.local
+if has('win32unix') || has('win64unix')
+  if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+  endif
 endif
+
+if has('win32') || has('win64')
+  if filereadable(expand('c:\vim\vimrc.local'))
+  source c:\vim\vimrc.local
+  endif
+endif
+
+
+" EOF
