@@ -199,3 +199,7 @@
 
 # bashのキーアサインをvi風に
 set -o vi
+
+# winsymlinksの設定(cygwinのみ)
+export CYGWIN="winsymlinks"
+
