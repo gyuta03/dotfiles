@@ -148,30 +148,6 @@ if has('win32')
 
 endif
 
-" -------------------  
-" Cygwin固有の設定
-
-if has('win32unix')
-  
-  "スワップファイルの出力先変更
-  set directory=/cygdrive/c/hiraki/log/vim/back/
-  "バックアップの出力先変更
-  set backupdir=/cygdrive/c/hiraki/log/vim/swap/
-
-endif
-
-" -------------------  
-" win固有の設定
-
-if has('win32') || has('win64')
-  
-  "スワップファイルの出力先変更
-  set directory=C:\hiraki\log\vim\back
-  "バックアップの出力先変更
-  set backupdir=C:\hiraki\log\vim\swap
-
-endif
-
 
 
 "---------------------------------------------------------------------------
@@ -191,3 +167,8 @@ if has('multi_byte_ime') || has('xim')
   "inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 endif
 
+
+" 環境依存や非公開設定ファイルの読み込み
+if filereadable(expand('~/.vimrc.local'))
+source ~/.vimrc.local
+endif
