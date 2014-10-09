@@ -122,32 +122,6 @@ set fileencodings=utf-8,cp932,euc-jp
 scriptencoding cp932
 
 
-" ---------------
-" Win固有設定関連
-
-if has('win32')
-
-  filetype off
-
-  if has('vim_starting')
-  "	set runtimepath+='path to neobundle directory'
-    call neobundle#rc(expand($HOME.'/plugins'))
-  endif
-
-  " NeoBundleを更新するための設定
-  NeoBundleFetch 'Shougo/neobundle.vim'
-
-  " 読み込むプラグインを記載
-  NeoBundle 'thinca/vim-quickrun'
-
-  filetype plugin on
-
-  filetype indent on
-
-endif
-
-
-
 "---------------------------------------------------------------------------
 " 日本語入力に関する設定:
 "
