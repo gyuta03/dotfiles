@@ -1,7 +1,3 @@
-"3.7 (created: 2013/04/03 18:20:07)
-
-source! "C:\\Users\\hiraki\\_vimperatorrc.local"
-
 " vim: set ft=vimperator:
 
 " コマンドラインモード時に自動でIMEをOFFにする
