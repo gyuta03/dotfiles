@@ -203,3 +203,15 @@ set -o vi
 # winsymlinksの設定(cygwinのみ)
 export CYGWIN="winsymlinks"
 
+# PATH の追加
+export PATH=$PATH:/usr/local/bin/
+
+# aliases
+alias ifconfig="cocot ipconfig"
+alias ipconfig="cocot ipconfig"
+alias ping="cocot ping"
+alias arp="cocot arp"
+alias nslookup="cocot nslookup"
+alias traceroute="cocot tracert"
+alias route="cocot route"
+alias netstat="cocot netstat"
