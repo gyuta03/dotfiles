@@ -108,9 +108,14 @@ set number
 set incsearch
 set autoindent
 set ic
-set ts=2
-set expandtab
 set shiftwidth=2
+set tabstop=2
+set expandtab
+
+augroup vimrc
+  autocmd! FileType python setlocal shiftwidth=4 tabstop=4 
+  autocmd! FileType markdown setlocal shiftwidth=4 tabstop=4
+augroup END
 
 
 " -----------------
@@ -153,5 +158,7 @@ if has('win32') || has('win64')
   endif
 endif
 
+" .mdファイルをmarkdownに紐付け
+au BufNewFile,BufRead *.md :set filetype=markdown
 
 " EOF

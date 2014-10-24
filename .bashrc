@@ -200,18 +200,43 @@
 # bashのキーアサインをvi風に
 set -o vi
 
-# winsymlinksの設定(cygwinのみ)
-export CYGWIN="winsymlinks"
+# Cygwinかどうか判定用の変数
+cygwin=false
+case "$(uname)" in
+  CYGWIN*) cygwin=true;;
+esac
 
-# PATH の追加
-export PATH=$PATH:/usr/local/bin/
+# Cygwinの場合の処理
+if $cygwin; then
 
-# aliases
-alias ifconfig="cocot ipconfig"
-alias ipconfig="cocot ipconfig"
-alias ping="cocot ping"
-alias arp="cocot arp"
-alias nslookup="cocot nslookup"
-alias traceroute="cocot tracert"
-alias route="cocot route"
-alias netstat="cocot netstat"
+  # winsymlinksの設定
+  export CYGWIN="winsymlinks"
+
+  # PATH の追加
+  export PATH=$PATH:/usr/local/bin/
+
+  # aliases
+  alias ifconfig="cocot ipconfig"
+  alias ipconfig="cocot ipconfig"
+  alias ping="cocot ping"
+  alias arp="cocot arp"
+  alias nslookup="cocot nslookup"
+  alias traceroute="cocot tracert"
+  alias route="cocot route"
+  alias netstat="cocot netstat"
+
+  # WinにインストールしたRubyをCygwinで使う
+  if [[ -n "$(which ruby 2>/dev/null)" ]]; then
+    RUBY_BIN=$(cygpath -u $(ruby -e 'puts RbConfig::CONFIG["bindir"]') | tr '\r' ' ')
+    for f in $(find ${RUBY_BIN} -regex ".*bat$"| xargs -n1 basename); do
+        alias ${f%.bat}=${f}
+    done
+  fi 
+
+fi
+
+# rbenvのための設定
+if [ -d $HOME/.rbenv ] ; then 
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
