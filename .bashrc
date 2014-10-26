@@ -233,6 +233,9 @@ if $cygwin; then
     done
   fi 
 
+  # jekyllのための設定
+  export COMSPEC=/cygdrive/c/Windows/system32/cmd.exe
+
 fi
 
 # rbenvのための設定
