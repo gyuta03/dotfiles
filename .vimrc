@@ -145,17 +145,31 @@ if has('multi_byte_ime') || has('xim')
 endif
 
 
+
+
 " 環境依存や非公開設定ファイルの読み込み
-if has('win32unix') || has('win64unix')
+if has('win32unix') || has('win64unix') || has('unix')
+
+  set backup 
+  set backupdir=/tmp
+  set directory=/tmp
+    
   if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
   endif
+
 endif
 
 if has('win32') || has('win64')
+
+  set backup 
+  set backupdir=%temp%
+  set directory=%temp%
+
   if filereadable(expand('c:\vim\vimrc.local'))
   source c:\vim\vimrc.local
   endif
+
 endif
 
 " .mdファイルをmarkdownに紐付け
