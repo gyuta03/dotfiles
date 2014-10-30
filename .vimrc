@@ -127,6 +127,24 @@ set fileencodings=utf-8,cp932,euc-jp
 scriptencoding cp932
 
 
+" -----------------
+" 全角スペースの表示
+" http://inari.hatenablog.com/entry/2014/05/05/231307
+
+function! ZenkakuSpace()
+    highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+endfunction
+
+if has('syntax')
+    augroup ZenkakuSpace
+        autocmd!
+        autocmd ColorScheme * call ZenkakuSpace()
+        autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+    augroup END
+    call ZenkakuSpace()
+endif
+
+
 "---------------------------------------------------------------------------
 " 日本語入力に関する設定:
 "
@@ -145,6 +163,42 @@ if has('multi_byte_ime') || has('xim')
 endif
 
 
+"---------------------------
+" Neobundleの設定
+" http://catcher-in-the-tech.net/1063/
+
+function! NeobundleEnable(dir)
+
+  let neobundleDir = expand(a:dir . 'neobundle.vim')
+
+  if isdirectory(neobundleDir)
+
+    " bundleで管理するディレクトリを指定
+    " set runtimepath+=
+    " http://superuser.com/questions/806595/why-the-runtimepath-in-vim-cannot-be-set-as-a-variable
+    exe 'set rtp+=' . l:neobundleDir
+
+    " Required:
+    call neobundle#begin(expand(a:dir))
+     
+    " neobundle自体をneobundleで管理
+    NeoBundleFetch 'Shougo/neobundle.vim'
+
+    " 閉じ括弧を自動的に入力
+    NeoBundle 'Townk/vim-autoclose'
+     
+    call neobundle#end()
+     
+    " Required:
+    filetype plugin indent on
+     
+    " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
+    " 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
+    NeoBundleCheck
+
+  endif
+
+endfunction
 
 
 " 環境依存や非公開設定ファイルの読み込み
@@ -155,7 +209,11 @@ if has('win32unix') || has('win64unix') || has('unix')
   set directory=/tmp
     
   if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
+    source ~/.vimrc.local
+  endif
+
+  if isdirectory(expand('~/.vim/bundle/'))
+    call NeobundleEnable(expand('~/.vim/bundle/'))
   endif
 
 endif
@@ -167,7 +225,11 @@ if has('win32') || has('win64')
   set directory=%temp%
 
   if filereadable(expand('c:\vim\vimrc.local'))
-  source c:\vim\vimrc.local
+    source c:\vim\vimrc.local
+  endif
+
+  if isdirectory(expand('c:\vim\_vim\bundle\'))
+    call NeobundleEnable(expand('c:\vim\_vim\bundle\'))
   endif
 
 endif
@@ -175,4 +237,6 @@ endif
 " .mdファイルをmarkdownに紐付け
 au BufNewFile,BufRead *.md :set filetype=markdown
 
+
+ 
 " EOF
