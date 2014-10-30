@@ -200,6 +200,9 @@
 # bashのキーアサインをvi風に
 set -o vi
 
+# Ctrl-l に clear を適用
+bind -m vi-insert "\C-l":clear-screen
+
 # Cygwinかどうか判定用の変数
 cygwin=false
 case "$(uname)" in
@@ -215,7 +218,7 @@ if $cygwin; then
   # PATH の追加
   export PATH=$PATH:/usr/local/bin/
 
-  # aliases
+  # cocot関連のalias
   alias ifconfig="cocot ipconfig"
   alias ipconfig="cocot ipconfig"
   alias ping="cocot ping"
@@ -238,7 +241,7 @@ if $cygwin; then
 
 fi
 
-# rbenvのための設定
+# rbenvを有効化
 if [ -d $HOME/.rbenv ] ; then 
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
