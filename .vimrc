@@ -169,16 +169,21 @@ endif
 
 function! NeobundleEnable(dir)
 
+  filetype off
+
   let neobundleDir = expand(a:dir . 'neobundle.vim')
 
-  if isdirectory(neobundleDir)
-
+  if has("vim_starting")
+    set nocompatible
     " bundleで管理するディレクトリを指定
     " set runtimepath+=
     " http://superuser.com/questions/806595/why-the-runtimepath-in-vim-cannot-be-set-as-a-variable
     exe 'set rtp+=' . l:neobundleDir
+  endif
 
-    " Required:
+  if isdirectory(l:neobundleDir)
+
+    " Required
     call neobundle#begin(expand(a:dir))
      
     " neobundle自体をneobundleで管理
@@ -189,7 +194,7 @@ function! NeobundleEnable(dir)
      
     call neobundle#end()
      
-    " Required:
+    " Required
     filetype plugin indent on
      
     " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
@@ -197,6 +202,9 @@ function! NeobundleEnable(dir)
     NeoBundleCheck
 
   endif
+
+  filetype on
+  filetype plugin indent on
 
 endfunction
 
@@ -224,19 +232,18 @@ if has('win32') || has('win64')
   set backupdir=%temp%
   set directory=%temp%
 
-  if filereadable(expand('c:\vim\vimrc.local'))
-    source c:\vim\vimrc.local
+  if filereadable(expand('c:\vim/vimrc.local'))
+    source c:/vim/vimrc.local
   endif
 
-  if isdirectory(expand('c:\vim\_vim\bundle\'))
-    call NeobundleEnable(expand('c:\vim\_vim\bundle\'))
+  if isdirectory(expand('c:/vim/_vim/bundle/'))
+    call NeobundleEnable(expand('c:/vim/_vim/bundle/'))
   endif
 
 endif
 
 " .mdファイルをmarkdownに紐付け
 au BufNewFile,BufRead *.md :set filetype=markdown
-
 
  
 " EOF

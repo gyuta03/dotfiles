@@ -55,13 +55,6 @@ if 0 && exists('$HOME') && filereadable($HOME . '/.gvimrc_first.vim')
 endif
 
 "---------------------------------------------------------------------------
-" Bram氏の提供する設定例をインクルード (別ファイル:vimrc_example.vim)。これ
-" 以前にg:no_gvimrc_exampleに非0な値を設定しておけばインクルードしない。
-if 1 && (!exists('g:no_gvimrc_example') || g:no_gvimrc_example == 0)
-  source $VIMRUNTIME/gvimrc_example.vim
-endif
-
-"---------------------------------------------------------------------------
 " カラー設定:
 colorscheme morning
 
