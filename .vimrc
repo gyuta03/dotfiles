@@ -176,13 +176,12 @@ function! NeobundleEnable(dir)
   if has("vim_starting")
     set nocompatible
     " bundleで管理するディレクトリを指定
-    " set runtimepath+=
+    " set runtimepath+= を使うと変数を使用できないので以下の様に設定する
     " http://superuser.com/questions/806595/why-the-runtimepath-in-vim-cannot-be-set-as-a-variable
     exe 'set rtp+=' . l:neobundleDir
   endif
 
   if isdirectory(l:neobundleDir)
-
     " Required
     call neobundle#begin(expand(a:dir))
      
@@ -193,12 +192,10 @@ function! NeobundleEnable(dir)
     NeoBundle 'Townk/vim-autoclose'
      
     call neobundle#end()
-     
     " Required
     filetype plugin indent on
      
-    " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
-    " 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
+    " 未インストールのプラグインをインストールするかどうかを尋ねてくれるようにする設定
     NeoBundleCheck
 
   endif
