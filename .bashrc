@@ -219,14 +219,16 @@ if $cygwin; then
   export PATH=$PATH:/usr/local/bin/
 
   # cocot関連のalias
-  alias ifconfig="cocot ipconfig"
-  alias ipconfig="cocot ipconfig"
-  alias ping="cocot ping"
-  alias arp="cocot arp"
-  alias nslookup="cocot nslookup"
-  alias traceroute="cocot tracert"
-  alias route="cocot route"
-  alias netstat="cocot netstat"
+  if [[ -n "$(which cocot 2>/dev/null)" ]]; then
+    alias ifconfig="cocot ipconfig"
+    alias ipconfig="cocot ipconfig"
+    alias ping="cocot ping"
+    alias arp="cocot arp"
+    alias nslookup="cocot nslookup"
+    alias traceroute="cocot tracert"
+    alias route="cocot route"
+    alias netstat="cocot netstat"
+  fi
 
   # WinにインストールしたRubyをCygwinで使う
   if [[ -n "$(which ruby 2>/dev/null)" ]]; then
