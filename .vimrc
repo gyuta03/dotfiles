@@ -190,6 +190,8 @@ function! NeobundleEnable(dir)
 
     " 閉じ括弧を自動的に入力
     NeoBundle 'Townk/vim-autoclose'
+    " Wordpress 投稿用
+    NeoBundle 'vim-scripts/VimRepress'
      
     call neobundle#end()
     " Required
@@ -229,7 +231,7 @@ if has('win32') || has('win64')
   set backupdir=%temp%
   set directory=%temp%
 
-  if filereadable(expand('c:\vim/vimrc.local'))
+  if filereadable(expand('c:/vim/vimrc.local'))
     source c:/vim/vimrc.local
   endif
 
