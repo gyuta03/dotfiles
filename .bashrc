@@ -243,8 +243,8 @@ if $cygwin; then
 
 fi
 
-# rbenvを有効化
-if [ -d $HOME/.rbenv ] ; then 
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
+## rbenvを有効化
+#if [ -d $HOME/.rbenv ] ; then 
+#  export PATH="$HOME/.rbenv/bin:$PATH"
+#  eval "$(rbenv init -)"
+#fi
