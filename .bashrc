@@ -231,14 +231,14 @@ if $cygwin; then
   fi
 
   # WinにインストールしたRubyをCygwinで使う
-  if [[ -n "$(which ruby 2>/dev/null)" ]]; then
-    RUBY_BIN=$(cygpath -u $(ruby -e 'puts RbConfig::CONFIG["bindir"]') | tr '\r' ' ')
-    if `echo $RUBY_BIN | grep "/cygdrive/"`; then
-      for f in $(find ${RUBY_BIN} -regex ".*bat$"| xargs -n1 basename); do
-          alias ${f%.bat}=${f}
-      done
-    fi
-  fi 
+#  if [[ -n "$(which ruby 2>/dev/null)" ]]; then
+#    RUBY_BIN=$(cygpath -u $(ruby -e 'puts RbConfig::CONFIG["bindir"]') | tr '\r' ' ')
+#    if `echo $RUBY_BIN | grep "/cygdrive/"`; then
+#      for f in $(find ${RUBY_BIN} -regex ".*bat$"| xargs -n1 basename); do
+#          alias ${f%.bat}=${f}
+#      done
+#    fi
+#  fi 
 
   # jekyllのための設定
   export COMSPEC=/cygdrive/c/Windows/system32/cmd.exe
