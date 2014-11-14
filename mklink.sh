@@ -15,3 +15,6 @@ git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle
 mv ~/.tmux.conf{,.orig}
 ln -s ./.tmux.conf ~/.tmux.conf
 
+git clone https://github.com/sstephenson/rbenv ~/.rbenv
+source ~/.bash_profile
+git clone https://github.com/sstephenson/ruby-build ~/.plugins/ruby-build
