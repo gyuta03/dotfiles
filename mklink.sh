@@ -1,6 +1,6 @@
 #! /bin/sh 
 
-if [ -d ~/.dotfiles ] then;
+if [ -d ~/.dotfiles ] ; then
 
   mv ~/.vimrc{,.orig}
   ln -s ~/.dotfiles/.vimrc ~/.vimrc
