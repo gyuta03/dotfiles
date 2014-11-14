@@ -19,6 +19,6 @@ if [ -d ~/.dotfiles ] then;
 
   git clone https://github.com/sstephenson/rbenv ~/.rbenv
   source ~/.bash_profile
-  git clone https://github.com/sstephenson/ruby-build ~/.plugins/ruby-build
+  git clone https://github.com/sstephenson/ruby-build ~/.rbenv/plugins/ruby-build
 
 fi
