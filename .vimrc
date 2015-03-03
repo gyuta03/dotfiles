@@ -192,6 +192,8 @@ function! NeobundleEnable(dir)
     NeoBundle 'Townk/vim-autoclose'
     " Wordpress 投稿用
     NeoBundle 'vim-scripts/VimRepress'
+    " Unite ファイラ
+    NeoBundle 'Shougo/unite.vim'
      
     call neobundle#end()
     " Required
@@ -243,6 +245,9 @@ endif
 
 " .mdファイルをmarkdownに紐付け
 au BufNewFile,BufRead *.md :set filetype=markdown
+
+" セミコロンでコマンドモードに以降
+nnoremap ; :
 
  
 " EOF
