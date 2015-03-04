@@ -194,6 +194,8 @@ function! NeobundleEnable(dir)
     NeoBundle 'vim-scripts/VimRepress'
     " Unite ファイラ
     NeoBundle 'Shougo/unite.vim'
+    " Quick run 
+    NeoBundle 'Thinca/vim-quickrun'
      
     call neobundle#end()
     " Required
