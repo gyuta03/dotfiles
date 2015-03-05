@@ -196,6 +196,8 @@ function! NeobundleEnable(dir)
     NeoBundle 'Shougo/unite.vim'
     " Quick run 
     NeoBundle 'Thinca/vim-quickrun'
+    " ファイルツリーを表示
+    NeoBundle 'scrooloose/nerdtree'
      
     call neobundle#end()
     " Required
