@@ -228,6 +228,7 @@ if $cygwin; then
     alias traceroute="cocot tracert"
     alias route="cocot route"
     alias netstat="cocot netstat"
+    alias vagrant="cocot vagrant"
   fi
 
   # WinにインストールしたRubyをCygwinで使う

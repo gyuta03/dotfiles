@@ -12,7 +12,7 @@ if [ -d ~/.dotfiles ] ; then
   ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 
   mkdir -p ~/.vim/bundle
-  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle
+  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
   mv ~/.tmux.conf{,.orig}
   ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
