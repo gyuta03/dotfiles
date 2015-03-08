@@ -255,5 +255,13 @@ au BufNewFile,BufRead *.md :set filetype=markdown
 " セミコロンでコマンドモードに以降
 nnoremap ; :
 
+" emmet-vim HTMLを日本語設定
+let g:user_emmet_settings = {
+\ 'varivables' : {
+\   'lang' : 'ja'
+\ }
+\}
+
+
  
 " EOF
