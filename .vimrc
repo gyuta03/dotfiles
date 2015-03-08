@@ -198,6 +198,8 @@ function! NeobundleEnable(dir)
     NeoBundle 'Thinca/vim-quickrun'
     " ファイルツリーを表示
     NeoBundle 'scrooloose/nerdtree'
+    " HTML 編集を効率化
+    NeoBundle 'mattn/emmet-vim' 
      
     call neobundle#end()
     " Required
