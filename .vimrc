@@ -202,6 +202,8 @@ function! NeobundleEnable(dir)
     NeoBundle 'mattn/emmet-vim' 
     " コメントアウトを便利にする
     NeoBundle 'tomtom/tcomment_vim'
+    " 処理を非同期化 
+    NeoBundle 'Shougo/vimproc'
     " end を自動補完
     NeoBundle 'tpope/vim-endwise'
     "強力な補完機能
