@@ -202,8 +202,18 @@ function! NeobundleEnable(dir)
     NeoBundle 'mattn/emmet-vim' 
     " コメントアウトを便利にする
     NeoBundle 'tomtom/tcomment_vim'
+    " 処理を非同期化
+    NeoBundle 'Shougo/vimproc.vim', {
+    \ 'build' : {
+    \     'windows' : 'tools\\update-dll-mingw',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make -f make_mac.mak',
+    \     'linux' : 'make',
+    \     'unix' : 'gmake',
+    \    },
+    \ }
     " 処理を非同期化 
-    NeoBundle 'Shougo/vimproc'
+
     " end を自動補完
     NeoBundle 'tpope/vim-endwise'
     "強力な補完機能
