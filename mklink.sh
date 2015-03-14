@@ -5,14 +5,17 @@ if [ -d ~/.dotfiles ] ; then
   mv ~/.vimrc{,.orig}
   ln -s ~/.dotfiles/.vimrc ~/.vimrc
 
+  mv ~/.vim{,.orig}
+  ln -s ~/.dotfiles/vimfiles ~/.vim
+
   mv ~/.bashrc{,.orig}
   ln -s ~/.dotfiles/.bashrc ~/.bashrc
 
   mv ~/.bash_profile{,.orig}
   ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 
-  mkdir -p ~/.vim/bundle
-  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+  mkdir -p ~/.dotfiles/.vim/bundle
+  git clone https://github.com/Shougo/neobundle.vim ~/.dotfiles/.vim/bundle/neobundle.vim
 
   mv ~/.tmux.conf{,.orig}
   ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
