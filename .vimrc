@@ -66,7 +66,17 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " 分割ファイルの読み込みを開始
 " http://wakame.hatenablog.jp/entry/2014/09/05/085345 (参考)
+"
+if has('win32') || has('win64')
 
-set runtimepath+=~~/.vim/
-runtime! userautoload/*.vim
+  set runtimepath+=~~/_vim/
+  runtime! userautoload/*.vim
 
+endif 
+
+if has('win32unix') || has('win64unix') || has('unix')
+
+  set runtimepath+=~~/.vim/
+  runtime! userautoload/*.vim
+
+endif 
