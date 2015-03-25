@@ -87,8 +87,8 @@ endif
 
 if has('win32') || has('win64')
 
-  if isdirectory(expand('c:/vim/_vim/bundle/'))
-    call NeobundleEnable(expand('c:/vim/_vim/bundle/'))
+  if isdirectory(expand('c:/vim/vimfiles/bundle/'))
+    call NeobundleEnable(expand('c:/vim/vimfiles/bundle/'))
     runtime! userautoload/plugins/*.vim
   endif
 
