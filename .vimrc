@@ -76,7 +76,6 @@ endif
 
 if has('win32unix') || has('win64unix') || has('unix')
 
-  set runtimepath+=~~/.vim/
-  runtime! userautoload/*.vim
+  " vimfiles を c:\vim に移動しておくこと
 
 endif 
