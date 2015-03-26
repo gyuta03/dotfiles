@@ -69,7 +69,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 if has('win32') || has('win64')
 
-  " vimfiles を c:\vim に移動しておくこと
+  " vimfiles ディレクトリを c:\vim に設置すること
 
 endif 
 
