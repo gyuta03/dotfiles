@@ -20,6 +20,11 @@ if [ -d ~/.dotfiles ] ; then
   mv ~/.tmux.conf{,.orig}
   ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
+  mv ~/.tmux{,.orig}
+  ln -s ~/.dotfiles/.tmux ~/.tmux
+
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
   git clone https://github.com/sstephenson/rbenv ~/.rbenv
   source ~/.bash_profile
   git clone https://github.com/sstephenson/ruby-build ~/.rbenv/plugins/ruby-build

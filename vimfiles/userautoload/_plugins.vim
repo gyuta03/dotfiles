@@ -47,7 +47,7 @@ function! NeobundleEnable(dir)
     \     'unix' : 'gmake',
     \    },
     \ }
-    " 処理を非同期化 
+    NeoBundle "aklt/plantuml-syntax"
 
     " end を自動補完
     NeoBundle 'tpope/vim-endwise'

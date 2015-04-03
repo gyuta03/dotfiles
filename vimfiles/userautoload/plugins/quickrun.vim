@@ -13,4 +13,15 @@ let g:quickrun_config = {
 \   },
 \}
 
-
+" plantuml
+" let g:quickrun_config = {
+" \   "plantuml" :{
+" \       "type" : "plantuml"
+" \   },
+" \
+" \   "plantuml" : {
+" \       "command" : "plantuml",
+" \       "exec" : "%c %s"
+" \       "ourputter" : "null",
+" \   },
+" }
