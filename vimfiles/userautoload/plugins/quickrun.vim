@@ -25,3 +25,4 @@ let g:quickrun_config = {
 " \       "ourputter" : "null",
 " \   },
 " }
+
