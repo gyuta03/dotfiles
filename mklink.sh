@@ -29,4 +29,9 @@ if [ -d ~/.dotfiles ] ; then
   source ~/.bash_profile
   git clone https://github.com/sstephenson/ruby-build ~/.rbenv/plugins/ruby-build
 
+  mkdir -p ~/lib/java/
+  wget -O ~/lib/java/plantuml.jar http://downloads.sourceforge.net/project/plantuml/plantuml.jar?r=http%3A%2F%2Fplantuml.sourceforge.net%2Fdownload.html&ts=1428471885&use_mirror=jaist
+
+  sudo cp ~/.dotfiles/bin/plantuml /usr/local/bin/
+
 fi
