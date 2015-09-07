@@ -70,6 +70,8 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 if has('win32') || has('win64')
 
   " vimfiles ディレクトリを c:\vim に設置すること
+  set runtimepath+=./vimfiles/
+  runtime! userautoload/*.vim
 
 endif 
 
